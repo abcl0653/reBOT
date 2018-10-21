@@ -9,7 +9,6 @@ headers = {
   'Authorization': "Basic Q0FJQzpBYmNkMTIzNCQ="
   #'Postman-Token': "9daaa16f-4745-4d4b-9582-032d69363d9f"
   }
-auth = ('CAIC','Abcd1234$')
 
 response = requests.get(url,headers = headers, auth=('CAIC','Abcd1234$'))
 
