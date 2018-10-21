@@ -16,11 +16,13 @@ port = os.getenv("PORT")
 @app.route('/customer', methods=['GET']) 
 def index(): 
 #  print(json.loads(request.get_data())) 
+  project     = request.values.get('project')
 
-  url = "https://i039497trial-trial.apim1.hanatrial.ondemand.com/i039497trial/v1/customer/ZTEST_BP_CUST?$top=3&" + \
-    "$filter=zprojectno eq 'Z/000-400'"
+  url = "https://i039497trial-trial.apim1.hanatrial.ondemand.com/i039497trial/v1/customer/ZTEST_BP_CUST?$top=4&" + \
+    "$orderby=partner desc&" + \
+    "$filter=zprojectno eq " + "'" + project +"'"
 # querystring = {"$top":"3","$filter":"zprojectno%20eq%20%27Z/000-400%27"}
- 
+# print(url)
   response    = requests.get(url,headers = headers, auth = auth) 
   replies     = []
   elementList = []
